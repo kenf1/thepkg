@@ -2,6 +2,7 @@
 name = "thepkg"
 authors = ["kenf1"]
 repository = "https://github.com/kenf1/thepkg"
+description = "Collection of commonly-used functions."
 version = "0.1.0"
 edition = "2021"
 
