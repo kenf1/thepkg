@@ -1,19 +1,19 @@
 #[cfg(test)]
 
-use thepkg::Image;
+use thepkg::imagefn;
 
 //local image DNE
 #[test]
 #[should_panic]
 fn local_import_fail(){
-    _ = Image::image_import("./tests");
+    _ = imagefn::image_import("./tests");
 }
 
 //url image DNE
 #[test]
 #[should_panic]
 fn url_import_fail(){
-    let res = Image::image_from_url("https://github.com/");
+    let res = imagefn::image_from_url("https://github.com/");
     res.unwrap();
 }
 
@@ -21,14 +21,14 @@ fn url_import_fail(){
 #[test]
 #[should_panic]
 fn from_local_fail(){
-    _ = Image::image_import("./tests");
+    _ = imagefn::image_import("./tests");
 }
 
 //test local wrapper function (url image DNE)
 #[test]
 #[should_panic]
 fn from_url_fail(){
-    let res = Image::image_from_url("https://github.com/");
+    let res = imagefn::image_from_url("https://github.com/");
     res.unwrap();
 }
 
@@ -36,12 +36,12 @@ fn from_url_fail(){
 #[should_panic]
 fn save_img_fail(){
     let img_url = "https://github.com/";
-    Image::save_img(img_url,"./tests/Example.jpg",image::ImageFormat::Jpeg);
+    imagefn::save_img(img_url,"./tests/Example.jpg",image::ImageFormat::Jpeg);
 }
 
 #[test]
 #[should_panic]
 fn save_img_fail1(){
     let img_url = "https://github.com/piderman314/bardecoder/blob/master/tests/images/needs_alignment.jpg?raw=true";
-    Image::save_img(img_url,"./tests",image::ImageFormat::Jpeg);
+    imagefn::save_img(img_url,"./tests",image::ImageFormat::Jpeg);
 }

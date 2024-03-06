@@ -1,4 +1,6 @@
-pub mod Image;
+pub mod imagefn;
+pub mod iofn;
+pub mod scrapefn;
 
 use std::fmt;
 
