@@ -4,9 +4,19 @@
 
 Collection of KF's commonly-used Rust tools/functions.
 
-> My job: Rust,  
-> My hobby: Rust,  
-> My etiology: Rust,  
-> My profile pic: REDACTED  
+### To install:
+
+```{bash}
+cargo install --git https://github.com/kenf1/thepkg
+```
+
+[thepkg feature flags](./ref/Features.md)
+
+---
+
+> My job: __Rust__,  
+> My hobby: __Rust__,  
+> My etiology: __Rust__,  
+> My profile pic: __REDACTED__  
 >
 > \- Programmers are also human
