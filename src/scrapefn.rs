@@ -9,6 +9,5 @@ pub async fn get_html(url: &str) -> Result<Document,reqwest::Error>{
         .await?;
 
     let raw_html = Document::from(res.as_str());
-
     Ok(raw_html)
 }

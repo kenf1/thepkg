@@ -1,5 +1,10 @@
-pub mod imagefn;
+#[cfg(feature = "io")]
 pub mod iofn;
+
+#[cfg(feature = "qr")]
+pub mod imagefn;
+
+#[cfg(feature = "webscrape")]
 pub mod scrapefn;
 
 use std::fmt;

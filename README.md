@@ -2,7 +2,7 @@
 
 [![Cargo Test](https://github.com/kenf1/thepkg/actions/workflows/cargo_test.yaml/badge.svg?branch=main)](https://github.com/kenf1/thepkg/actions/workflows/cargo_test.yaml)
 
-A collection of my frequently used Rust code.
+Collection of KF's commonly-used Rust tools/functions.
 
 > My job: Rust,  
 > My hobby: Rust,  
