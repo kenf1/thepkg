@@ -3,15 +3,13 @@ use reqwest::blocking::get;
 use image::imageops::CatmullRom; //resize algorithm
 use bardecoder;
 
-//import image from local path
-pub fn image_import(image_path: &str) -> DynamicImage{
-    let temp_img = image::open(image_path.to_string())
-        .unwrap();
-
-    temp_img
+//import image from local path (allows error handling)
+pub fn image_import(image_path: &str) -> Result<DynamicImage,Box<dyn std::error::Error>>{
+    let temp_img = image::open(image_path.to_string())?;
+    Ok(temp_img)
 }
 
-//import image from url (need to unwrap outside function)
+//import image from url (allows error handling)
 pub fn image_from_url(url: &str) -> Result<DynamicImage,Box<dyn std::error::Error>>{
     let img_bytes = get(url)?
         .bytes()?
@@ -66,24 +64,38 @@ pub fn image_decode(image: DynamicImage) -> String{
 
 //wrapper function for local image
 pub fn from_local(image_path: &str,orig_cutoff: u32,new_cutoff: u32) -> String{
-    //import image & resize if nec
-    let qrcode = image_import(image_path);
-    let tidy = image_dimensions(qrcode,orig_cutoff,new_cutoff);
+    match image_import(image_path){
+        Ok(qrcode) => {
+            //resize if nec
+            let tidy = image_dimensions(qrcode,orig_cutoff,new_cutoff);
 
-    //return qr content
-    let res = image_decode(tidy);
-    res
+            //return qr content
+            let res = image_decode(tidy);
+            res
+        },
+        Err(err) => {
+            let res = String::from("Error: unable to decode QR code");
+            res
+        }
+    }
 }
 
 //wrapper function for remote image (same structure as from_local)
 pub fn from_remote(url: &str,orig_cutoff: u32,new_cutoff: u32) -> String{
-    //import image & resize if nec
-    let qrcode = image_from_url(url);
-    let tidy = image_dimensions(qrcode.unwrap(),orig_cutoff,new_cutoff);
-
-    //return qr content
-    let res = image_decode(tidy);
-    res
+    match image_from_url(url){
+        Ok(qrcode) => {
+            //resize if nec
+            let tidy = image_dimensions(qrcode,orig_cutoff,new_cutoff);
+            
+            //return qr content
+            let res = image_decode(tidy);
+            res
+        },
+        Err(err) => {
+            let res = String::from("Error: unable to decode QR code");
+            res
+        }
+    }
 }
 
 //save image from url (keep original dimensions + aspect ratio)

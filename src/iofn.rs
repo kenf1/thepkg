@@ -3,6 +3,14 @@ use std::fs::{self,ReadDir};
 use csv::Writer;
 use polars::prelude::*;
 
+//confirm file exists
+pub fn file_exists(full_path: &str){
+    match fs::metadata(full_path){
+        Ok(_) => println!("File found"),
+        Err(_) => println!("Error: file not found"),
+    }
+}
+
 //save dataframe (vector of String vectors) as csv
 pub fn save_csv(df: Vec<Vec<String>>,folder_name: &str,file_name: &str) -> Result<(),Box<dyn Error>>{
     //create folders if DNE

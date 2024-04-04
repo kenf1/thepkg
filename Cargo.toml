@@ -5,7 +5,7 @@ repository = "https://github.com/kenf1/thepkg"
 description = "Collection of KF's commonly-used Rust tools/functions."
 license = "GNU General Public License v3.0"
 
-version = "0.2.0"
+version = "0.3.0"
 edition = "2021"
 
 [lib]
