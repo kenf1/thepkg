@@ -7,7 +7,7 @@ Collection of KF's commonly-used Rust tools/functions.
 ### To install:
 
 ```{bash}
-cargo install --git https://github.com/kenf1/thepkg
+cargo add --git https://github.com/kenf1/thepkg
 ```
 
 [thepkg feature flags](./ref/Features.md)
