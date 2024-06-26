@@ -1,7 +1,11 @@
-use std::error::Error;
+use std::{
+    env,
+    error::Error,
+};
 use std::fs::{self,ReadDir};
 use csv::Writer;
 use polars::prelude::*;
+use dotenv::dotenv;
 
 //confirm file exists
 pub fn file_exists(full_path: &str){
@@ -111,4 +115,13 @@ pub fn rm_alltarget(target_path: &str,excluded: Vec<&str>,print_allpaths: bool,p
 
     //rm target folder for each path in filt_paths
     loop_rm(filt_paths);
+}
+
+//import item from .env file
+pub fn import_env(item: &str) -> String{
+    dotenv().ok();
+
+    let temp = env::var(item)
+        .expect("Missing env var");
+    temp
 }

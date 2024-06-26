@@ -3,8 +3,9 @@
 |Feature flag|Description|Includes|
 |---|---|---|
 |default|Default|-|
-|all|All|io, qr, webscrape|
-|io|Input/Output|csv, polars/lazy|
+|all|All|io, qr, webscrape, crypt|
+|crypt|Basic string encryption/decryption||
+|io|Input/Output|csv, polars/lazy, dotenv|
 |qr|QR reader|bardecoder, image, reqwest/blocking|
 |webscrape|Webscraping|reqwest/blocking, select|
 

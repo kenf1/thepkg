@@ -1,3 +1,6 @@
+#[cfg(feature = "crypt")]
+pub mod cryptlib;
+
 #[cfg(feature = "io")]
 pub mod iofn;
 
