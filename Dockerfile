@@ -1,4 +1,4 @@
-FROM rust:1.78-slim
+FROM rust:1.81-slim
 
 RUN apt-get update && apt-get install -y \
     build-essential \
