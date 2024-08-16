@@ -9,5 +9,3 @@ test_qr:
 
 test_webscrape:
 	cargo test --features "webscrape"
-
-# all: test_crypt test_io test_qr test_webscrape
