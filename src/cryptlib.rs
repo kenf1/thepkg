@@ -1,6 +1,7 @@
 //encrypt & decrypt logic
-pub fn cryptfn(task: &str,input: &str,ref_dict: &str,shift: usize) -> 
-Result<String, String>{
+pub fn cryptfn(
+    task: &str,input: &str,ref_dict: &str,shift: usize
+) -> Result<String, String>{
     let mut charvec: Vec<char> = Vec::new();
 
     for c in input.chars(){

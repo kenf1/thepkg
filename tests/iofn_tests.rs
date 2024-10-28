@@ -8,5 +8,5 @@ use thepkg::iofn;
 #[test]
 fn confirm_file_exists(){
     let file_path = "./tests/testqr.jpg";
-    iofn::file_exists(file_path);
+    let _ = iofn::file_exists(file_path);
 }

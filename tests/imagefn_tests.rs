@@ -100,7 +100,7 @@ fn save_img_fail(){
         "Expected an error but got {:?}",result
     );
 
-    //will get 1 of 2 errors dep on whether cargo clean was run prev
+    //will get 1 of 2 errors dep on whether cargo clean was run
     assert!(
         matches!(
             result.err().unwrap().to_string(),
@@ -125,7 +125,7 @@ fn save_img_fail1(){
         "Expected an error but got {:?}",result
     );
 
-
+    //will get 1 of 2 errors dep on whether cargo clean was run
     assert!(
         matches!(
             result.err().unwrap().to_string(),
