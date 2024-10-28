@@ -10,3 +10,7 @@
 |webscrape|Webscraping|reqwest/blocking, select|
 
 See [Cargo.toml](../Cargo.toml) for more info
+
+Note: `image` crate uses `0.24.9` because its latest release supported by `bardecoder`
+
+All other crates use latest release

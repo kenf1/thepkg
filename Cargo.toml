@@ -5,7 +5,7 @@ repository = "https://github.com/kenf1/thepkg"
 description = "The Package: Rust edition"
 license = "GNU General Public License v3.0"
 
-version = "0.4.0"
+version = "1.0.0"
 edition = "2021"
 
 [lib]
