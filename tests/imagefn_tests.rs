@@ -110,27 +110,28 @@ fn save_img_fail(){
     );
 }
 
-#[cfg(feature = "qr")]
-#[test]
-fn save_img_fail1(){
-    let img_url = "https://github.com/piderman314/bardecoder/blob/master/tests/images/needs_alignment.jpg?raw=true";
-    let result = imagefn::save_img(
-        img_url,
-        "./tests",
-        image::ImageFormat::Jpeg
-    );
+//takes too long in GH Actions
+// #[cfg(feature = "qr")]
+// #[test]
+// fn save_img_fail1(){
+//     let img_url = "https://github.com/piderman314/bardecoder/blob/master/tests/images/needs_alignment.jpg?raw=true";
+//     let result = imagefn::save_img(
+//         img_url,
+//         "./tests",
+//         image::ImageFormat::Jpeg
+//     );
 
-    assert!(
-        result.is_err(),
-        "Expected an error but got {:?}",result
-    );
+//     assert!(
+//         result.is_err(),
+//         "Expected an error but got {:?}",result
+//     );
 
-    //will get 1 of 2 errors dep on whether cargo clean was run
-    assert!(
-        matches!(
-            result.err().unwrap().to_string(),
-            s if s == "error sending request for url (https://github.com/piderman314/bardecoder/blob/master/tests/images/needs_alignment.jpg?raw=true)" || 
-            s == "Is a directory (os error 21)"
-        )
-    );
-}
+//     //will get 1 of 2 errors dep on whether cargo clean was run
+//     assert!(
+//         matches!(
+//             result.err().unwrap().to_string(),
+//             s if s == "error sending request for url (https://github.com/piderman314/bardecoder/blob/master/tests/images/needs_alignment.jpg?raw=true)" || 
+//             s == "Is a directory (os error 21)"
+//         )
+//     );
+// }

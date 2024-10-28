@@ -10,5 +10,7 @@ pub async fn get_html(
         .text()
         .await?;
 
-    Ok(Document::from(res))
+    Ok(
+        Document::from(res.as_str())
+    )
 }
