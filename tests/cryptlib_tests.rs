@@ -10,8 +10,8 @@ fn encrypt_test_pass(){
     let dict = String::from("abcde");
     let entry = String::from("abc");
 
-    let res = cryptlib::cryptfn("encrypt",&entry,&dict.clone(),1);
-    assert_eq!(res,"bcd");
+    let res = cryptlib::cryptfn("encrypt",&entry,&dict,1);
+    assert!(matches!(res,Ok(ref s) if s == "bcd"));
 }
 
 //encrypt fail: char not found
@@ -21,28 +21,33 @@ fn encrypt_test_fail(){
     let dict = String::from("abcde");
     let entry = String::from("thepkg");
 
-    let res = cryptlib::cryptfn("encrypt",&entry,&dict.clone(),1);
-    assert_eq!(res,"Error");
+    let res = cryptlib::cryptfn("encrypt",&entry,&dict,1);
+    assert_eq!(
+        res,
+        Err(String::from("Error: entered string contains characters not found in reference dict."))
+    );
 }
 
 //decrypt pass
 #[cfg(feature = "crypt")]
 #[test]
-fn decrypt_test_pass(){
+fn decrypt_test_pass() {
     let dict = String::from("abcde");
     let entry = String::from("bcd");
 
-    let res = cryptlib::cryptfn("decrypt",&entry,&dict.clone(),1);
-    assert_eq!(res,"abc");
+    let res = cryptlib::cryptfn("decrypt", &entry, &dict, 1);
+    assert!(matches!(res, Ok(ref s) if s == "abc"));
 }
 
-//decrypt fail: char not found
 #[cfg(feature = "crypt")]
 #[test]
-fn decrypt_test_fail(){
+fn decrypt_test_fail() {
     let dict = String::from("abcde");
     let entry = String::from("b1cd");
 
-    let res = cryptlib::cryptfn("decrypt",&entry,&dict.clone(),1);
-    assert_eq!(res,"Error");
+    let res = cryptlib::cryptfn("decrypt",&entry,&dict,1);
+    assert_eq!(
+        res,
+        Err(String::from("Error: entered string contains characters not found in reference dict."))
+    );
 }
