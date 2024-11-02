@@ -20,7 +20,9 @@ pub fn file_exists(full_path: &str) -> Result<(),Box<dyn Error>>{
 
 //save dataframe (vector of String vectors) as csv
 pub fn save_csv(
-    df: Vec<Vec<String>>,folder_name: &str,file_name: &str
+    df: Vec<Vec<String>>,
+    folder_name: &str,
+    file_name: &str
 ) -> Result<(),Box<dyn Error>>{
     //create folders if DNE
     fs::create_dir_all(folder_name)?;
@@ -39,7 +41,8 @@ pub fn save_csv(
 
 //save polars DataFrame as csv
 pub fn save_df(
-    mut df: DataFrame,output_path: &str
+    mut df: DataFrame,
+    output_path: &str
 ) -> Result<(),Box<dyn Error>>{
     // create file
     let mut file = fs::File::create(output_path)?;
@@ -52,7 +55,8 @@ pub fn save_df(
 
 //store results as Vec<String>
 pub fn path_tree(
-    paths: ReadDir,debug_print: bool
+    paths: ReadDir,
+    debug_print: bool
 ) -> Vec<String>{
     let mut path_vec: Vec<String> = Vec::new();
 
@@ -76,7 +80,9 @@ pub fn path_tree(
 
 // filter path: Vec<String>, not destructive
 pub fn paths_filter(
-    paths: Vec<String>,excluded: Vec<&str>,debug_print: bool
+    paths: Vec<String>,
+    excluded: Vec<&str>,
+    debug_print: bool
 ) -> Vec<String>{
     let filt_paths: Vec<String> = paths
         .iter()
@@ -127,8 +133,10 @@ pub fn loop_rm(paths: Vec<String>) -> Result<(),Box<dyn Error>>{
         print_filtpaths = print all subpaths (after filter) if true
 */
 pub fn rm_alltarget(
-    target_path: &str,excluded: Vec<&str>,
-    print_allpaths: bool,print_filtpaths: bool
+    target_path: &str,
+    excluded: Vec<&str>,
+    print_allpaths: bool,
+    print_filtpaths: bool
 ) -> Result<(),Box<dyn Error>>{
     //store all paths
     let origpath = fs::read_dir(target_path)?;
@@ -146,7 +154,7 @@ pub fn rm_alltarget(
 }
 
 //import item from .env file
-pub fn import_env(item: &str) -> String {
+pub fn import_env(item: &str) -> String{
     dotenv().ok();
 
     env::var(item)

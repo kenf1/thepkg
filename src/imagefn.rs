@@ -28,16 +28,28 @@ pub fn image_dimensions(
     image: DynamicImage,orig_cutoff: u32,new_cutoff: u32
 ) -> DynamicImage{
     let (width,height) = image.dimensions();
-    println!("Image dimensions are: {} pixels in width x {} pixels in height.", width, height);
+    println!(
+        "Image dimensions are: {} pixels in width x {} pixels in height.",
+        width,height
+    );
 
     if width >= orig_cutoff || height >= orig_cutoff {
-        println!("Image width and/or height >= {} pixels -> will be resized, maintaining original aspect ratio.",orig_cutoff);
+        println!(
+            "Image width and/or height >= {} pixels -> will be resized, maintaining original aspect ratio.",
+            orig_cutoff
+        );
 
         let new_image = DynamicImage::resize(
-            &image,new_cutoff,
-            new_cutoff,CatmullRom
+            &image,
+            new_cutoff,
+            new_cutoff,
+            CatmullRom
         );
-        println!("Resized image dimensions: {:?}",new_image.dimensions());
+        println!(
+            "Resized image dimensions: {:?}",
+            new_image.dimensions()
+        );
+
         new_image
     }else{
         image
@@ -73,12 +85,12 @@ pub fn from_local(
 
 //wrapper function for remote image (same structure as from_local)
 pub fn from_remote(
-    url: &str, orig_cutoff: u32, new_cutoff: u32
+    url: &str, orig_cutoff: u32,new_cutoff: u32
 ) -> Result<String, Box<dyn std::error::Error>>{
     let qrcode = image_from_url(url)?;
 
     //resize if nec
-    let tidy = image_dimensions(qrcode, orig_cutoff, new_cutoff);
+    let tidy = image_dimensions(qrcode,orig_cutoff,new_cutoff);
 
     let res = image_decode(tidy)?;
     Ok(res)
@@ -94,7 +106,7 @@ pub fn save_img(
     Ok(())
 }
 
-//save image from url (resize image while maintaining original aspect ratio)
+//save image from url (resize w/ orig aspect ratio)
 pub fn save_img_resized(
     url: &str,orig_cutoff: u32,new_cutoff: u32,
     path: &str,extension: ImageFormat

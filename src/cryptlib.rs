@@ -10,7 +10,7 @@ pub fn cryptfn(
                 let new_index = match task {
                     //encrypt vs decrypt
                     "encrypt" => (v + shift) % ref_dict.len(),
-                    "decrypt" => (v - shift + ref_dict.len()) % ref_dict.len(), // Ensure non-negative index
+                    "decrypt" => (v - shift + ref_dict.len()) % ref_dict.len(), //ensure non-negative index
                     _ => {
                         //unaccepted input
                         return Err(String::from("Options are: encrypt or decrypt"));

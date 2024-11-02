@@ -22,7 +22,7 @@ jobs:
       - run: rustup update ${{ matrix.toolchain }} && rustup default ${{ matrix.toolchain }}
       #cache if package unchanged
       - name: Cache Cargo packages
-        uses: actions/cache@v2
+        uses: actions/cache@v4
         with:
           path: ~/.cargo/registry
           key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
