@@ -14,3 +14,6 @@ test_qr: ##Test qr features flag
 
 test_webscrape: ##Test webscrape features flag
 	cargo test --features "webscrape"
+
+update_toml: ##Update dependencies in Cargo.toml
+	cargo update --manifest-path Cargo.toml
