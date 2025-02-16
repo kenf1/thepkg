@@ -1,5 +1,5 @@
 use csv::Writer;
-use dotenv::dotenv;
+use dotenvy::dotenv;
 use polars::prelude::*;
 use std::{
     env,

@@ -5,7 +5,7 @@
 |default|Default|-|
 |all|All|io, qr, webscrape, crypt|
 |crypt|Basic string encryption/decryption||
-|io|Input/Output|csv, polars/lazy, dotenv|
+|io|Input/Output|csv, polars/lazy, dotenvy|
 |qr|QR reader|bardecoder, image, reqwest/blocking|
 |webscrape|Webscraping|reqwest/blocking, select|
 

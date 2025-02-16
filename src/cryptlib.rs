@@ -46,6 +46,5 @@ pub fn cryptfn(
 
 //convert Vec<char> -> String
 fn vec_to_str(input_vec: Vec<char>) -> String {
-    //implicit return
     input_vec.iter().collect()
 }

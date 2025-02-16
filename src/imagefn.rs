@@ -30,13 +30,13 @@ pub fn image_dimensions(
     let (width, height) = image.dimensions();
     println!(
         "Image dimensions are: {} pixels in width x {} pixels in height.",
-        width, height
+        width, height,
     );
 
     if width >= orig_cutoff || height >= orig_cutoff {
         println!(
             "Image width and/or height >= {} pixels -> will be resized, maintaining original aspect ratio.",
-            orig_cutoff
+            orig_cutoff,
         );
 
         let new_image =
