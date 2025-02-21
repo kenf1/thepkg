@@ -1,12 +1,12 @@
 [package]
 name = "thepkg"
-authors = ["kenf1"]
+authors = ["KF"]
 repository = "https://github.com/kenf1/thepkg"
 description = "The Package: Rust edition"
 license = "GNU General Public License v3.0"
 
-version = "1.2.0"
-edition = "2021"
+version = "1.2.1"
+edition = "2024"
 
 [lib]
 name = "thepkg"
@@ -33,8 +33,8 @@ webscrape = ["reqwest/blocking", "select"]
 [dependencies]
 bardecoder = { version = "0.5.0", optional = true }
 csv = { version = "1.3.1", optional = true }
-dotenvy = { version = "0.15.0", optional = true }
+dotenvy = { version = "0.15.7", optional = true }
 image = { version = "0.24.9", optional = true }
 polars = { version = "0.46.0", optional = true, features = ["lazy"] }
-reqwest = { version = "0.12.9", optional = true, features = ["blocking"] }
+reqwest = { version = "0.12.12", optional = true, features = ["blocking"] }
 select = { version = "0.6.0", optional = true }
