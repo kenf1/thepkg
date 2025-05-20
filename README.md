@@ -14,9 +14,9 @@ cargo add --git https://github.com/kenf1/thepkg
 
 ---
 
-> My job: __Rust__,  
-> My hobby: __Rust__,  
-> My etiology: __Rust__,  
-> My profile pic: [__REDACTED__](https://foundation.rust-lang.org/policies/logo-policy-and-media-guide/)  
+> My job: **Rust**,  
+> My hobby: **Rust**,  
+> My etiology: **Rust**,  
+> My profile pic: [**REDACTED**](https://foundation.rust-lang.org/policies/logo-policy-and-media-guide/)
 >
 > \- Programmers are also human
