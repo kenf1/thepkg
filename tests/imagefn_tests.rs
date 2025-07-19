@@ -42,7 +42,7 @@ fn from_remote_pass() {
     let (orig_cutoff, new_cutoff) = (600, 300);
 
     let res = imagefn::from_remote(url, orig_cutoff, new_cutoff);
-    assert!(res.is_ok(), "Expected an ok result but got {:?}", res);
+    assert!(res.is_ok(), "Expected an ok result but got {res:?}");
 
     let decoded_string = res.unwrap();
     assert_eq!(decoded_string, "http://cblink.je/app-install-display-nl");
@@ -55,7 +55,7 @@ fn from_remote_fail() {
     let (orig_cutoff, new_cutoff) = (600, 300);
 
     let res = imagefn::from_remote(url, orig_cutoff, new_cutoff);
-    assert!(res.is_err(), "Expected an error but got {:?}", res);
+    assert!(res.is_err(), "Expected an error but got {res:?}");
 
     let error_message = res.unwrap_err().to_string();
     assert_eq!(error_message, "builder error");
@@ -72,7 +72,7 @@ fn save_img_fail() {
         image::ImageFormat::Jpeg,
     );
 
-    assert!(result.is_err(), "Expected an error but got {:?}", result);
+    assert!(result.is_err(), "Expected an error but got {result:?}");
 
     //will get 1 of 2 errors dep on whether cargo clean was run
     assert!(matches!(
