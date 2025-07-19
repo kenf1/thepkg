@@ -28,8 +28,7 @@ pub fn save_csv(
     fs::create_dir_all(folder_name)?;
 
     //write to file
-    let mut wtr =
-        Writer::from_path(format!("{}/{}.csv", folder_name, file_name))?;
+    let mut wtr = Writer::from_path(format!("{folder_name}/{file_name}.csv"))?;
     for vec in df {
         wtr.write_record(vec)?;
     }
@@ -47,7 +46,7 @@ pub fn save_df(
     let mut file = fs::File::create(output_path)?;
     CsvWriter::new(&mut file).finish(&mut df)?;
 
-    println!("{} saved", output_path);
+    println!("{output_path} saved");
     Ok(())
 }
 
@@ -64,7 +63,7 @@ pub fn path_tree(paths: ReadDir, debug_print: bool) -> Vec<String> {
     }
 
     if debug_print {
-        println!("{:?}\n---\n", path_vec);
+        println!("{path_vec:?}\n---\n");
     }
 
     path_vec
@@ -87,7 +86,7 @@ pub fn paths_filter(
         .collect();
 
     if debug_print {
-        println!("Paths to remove target folder from:\n{:?}\n", filt_paths);
+        println!("Paths to remove target folder from:\n{filt_paths:?}\n");
     }
 
     filt_paths
@@ -103,7 +102,7 @@ pub fn loop_rm(paths: Vec<String>) -> Result<(), Box<dyn Error>> {
             Ok(_) => {
                 println!("{}/target removed successfully.", item.to_string())
             }
-            Err(e) => eprintln!("Error: {} -> Skipped", e),
+            Err(e) => eprintln!("Error: {e} -> Skipped"),
         }
     }
 

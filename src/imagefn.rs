@@ -29,14 +29,12 @@ pub fn image_dimensions(
 ) -> DynamicImage {
     let (width, height) = image.dimensions();
     println!(
-        "Image dimensions are: {} pixels in width x {} pixels in height.",
-        width, height,
+        "Image dimensions are: {width} pixels in width x {height} pixels in height.",
     );
 
     if width >= orig_cutoff || height >= orig_cutoff {
         println!(
-            "Image width and/or height >= {} pixels -> will be resized, maintaining original aspect ratio.",
-            orig_cutoff,
+            "Image width and/or height >= {orig_cutoff} pixels -> will be resized, maintaining original aspect ratio.",
         );
 
         let new_image =

@@ -19,3 +19,6 @@ test_webscrape: ##Test webscrape features flag
 
 update_toml: ##Update dependencies in Cargo.toml
 	cargo update --manifest-path Cargo.toml
+
+fmt: ##Format
+	cargo fmt

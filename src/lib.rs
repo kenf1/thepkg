@@ -17,5 +17,5 @@ pub fn debug_fn<T>(fn_input: &T)
 where
     T: fmt::Debug,
 {
-    println!("{:?}", fn_input);
+    println!("{fn_input:?}");
 }
