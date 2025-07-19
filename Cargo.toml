@@ -5,7 +5,7 @@ repository = "https://github.com/kenf1/thepkg"
 description = "The Package: Rust edition"
 license = "GNU General Public License v3.0"
 
-version = "1.2.2"
+version = "1.3.0"
 edition = "2024"
 
 [lib]
@@ -34,7 +34,7 @@ webscrape = ["reqwest/blocking", "select"]
 bardecoder = { version = "0.5.0", optional = true }
 csv = { version = "1.3.1", optional = true }
 dotenvy = { version = "0.15.7", optional = true }
-image = { version = "0.24.9", optional = true }
+image = { version = "0.24.9", optional = true }                             #higher version breaks functionality
 polars = { version = "0.49.1", optional = true, features = ["lazy"] }
 reqwest = { version = "0.12.22", optional = true, features = ["blocking"] }
 select = { version = "0.6.1", optional = true }
