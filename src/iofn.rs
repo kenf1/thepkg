@@ -28,8 +28,7 @@ pub fn save_csv(
     fs::create_dir_all(folder_name)?;
 
     //write to file
-    let mut wtr =
-        Writer::from_path(format!("{}/{}.csv", folder_name, file_name))?;
+    let mut wtr = Writer::from_path(format!("{folder_name}/{file_name}.csv"))?;
     for vec in df {
         wtr.write_record(vec)?;
     }
@@ -47,7 +46,7 @@ pub fn save_df(
     let mut file = fs::File::create(output_path)?;
     CsvWriter::new(&mut file).finish(&mut df)?;
 
-    println!("{} saved", output_path);
+    println!("{output_path} saved");
     Ok(())
 }
 
@@ -55,16 +54,13 @@ pub fn save_df(
 pub fn path_tree(paths: ReadDir, debug_print: bool) -> Vec<String> {
     let mut path_vec: Vec<String> = Vec::new();
 
-    for path in paths {
-        if let Ok(temp) = path {
-            let path_str = temp.path().display().to_string();
-
-            path_vec.push(path_str);
-        }
+    for path in paths.flatten() {
+        let path_str = path.path().display().to_string();
+        path_vec.push(path_str);
     }
 
     if debug_print {
-        println!("{:?}\n---\n", path_vec);
+        println!("{path_vec:?}\n---\n");
     }
 
     path_vec
@@ -87,7 +83,7 @@ pub fn paths_filter(
         .collect();
 
     if debug_print {
-        println!("Paths to remove target folder from:\n{:?}\n", filt_paths);
+        println!("Paths to remove target folder from:\n{filt_paths:?}\n");
     }
 
     filt_paths
@@ -96,14 +92,14 @@ pub fn paths_filter(
 // rm all target folders
 pub fn loop_rm(paths: Vec<String>) -> Result<(), Box<dyn Error>> {
     for item in paths {
-        let result = fs::remove_dir_all(format!("{}/target", item.to_string()));
+        let result = fs::remove_dir_all(format!("{item}/target"));
 
         // output outcome message
         match result {
             Ok(_) => {
-                println!("{}/target removed successfully.", item.to_string())
+                println!("{item}/target removed successfully.")
             }
-            Err(e) => eprintln!("Error: {} -> Skipped", e),
+            Err(e) => eprintln!("Error: {e} -> Skipped"),
         }
     }
 

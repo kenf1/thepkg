@@ -2,6 +2,8 @@ name: Cargo UnitTest
 
 on:
   push:
+    branches:
+      - main
   workflow_dispatch:
 
 env:
