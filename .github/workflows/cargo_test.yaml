@@ -1,7 +1,14 @@
-name: Cargo UnitTest
+name: Run UnitTest
 
 on:
   push:
+    branches:
+      - main
+    paths:
+      - src/**
+      - tests/**
+      - Cargo.toml
+  pull_request:
     branches:
       - main
   workflow_dispatch:
