@@ -16,3 +16,4 @@ updates:
       interval: "monthly"
     ignore:
       - dependency-name: "image" # breaking changes after v0.24.9
+      - dependency-name: "polars" # breaking changes after v0.51.0

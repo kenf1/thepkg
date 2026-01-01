@@ -3,8 +3,8 @@
 use thepkg::cryptlib;
 
 //encrypt pass
-#[cfg(feature = "crypt")]
 #[test]
+#[cfg(feature = "crypt")]
 fn encrypt_test_pass() {
     let dict = String::from("abcde");
     let entry = String::from("abc");
@@ -14,8 +14,8 @@ fn encrypt_test_pass() {
 }
 
 //encrypt fail: char not found
-#[cfg(feature = "crypt")]
 #[test]
+#[cfg(feature = "crypt")]
 fn encrypt_test_fail() {
     let dict = String::from("abcde");
     let entry = String::from("thepkg");
@@ -30,8 +30,8 @@ fn encrypt_test_fail() {
 }
 
 //decrypt pass
-#[cfg(feature = "crypt")]
 #[test]
+#[cfg(feature = "crypt")]
 fn decrypt_test_pass() {
     let dict = String::from("abcde");
     let entry = String::from("bcd");
@@ -40,8 +40,8 @@ fn decrypt_test_pass() {
     assert!(matches!(res, Ok(ref s) if s == "abc"));
 }
 
-#[cfg(feature = "crypt")]
 #[test]
+#[cfg(feature = "crypt")]
 fn decrypt_test_fail() {
     let dict = String::from("abcde");
     let entry = String::from("b1cd");
