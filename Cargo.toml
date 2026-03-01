@@ -39,5 +39,5 @@ image = { version = "0.24.9", optional = true } # breaking changes after v0.24.9
 polars = { version = "0.51.0", optional = true, features = [
     "lazy",
 ] } # breaking changes after v0.51.0
-reqwest = { version = "0.13.1", optional = true, features = ["blocking"] }
+reqwest = { version = "0.13.2", optional = true, features = ["blocking"] }
 select = { version = "0.6.1", optional = true }
